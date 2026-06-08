@@ -97,11 +97,11 @@ h2 {
 
 @media (max-width: 520px) {
   h1 {
-    font-size: 42px;
+    font-size: 38px;
   }
 
   h2 {
-    font-size: 31px;
+    font-size: 29px;
   }
 }
 
@@ -152,6 +152,31 @@ main {
 
 .site-header nav {
   gap: 8px;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-h);
+  background: var(--surface);
+  padding: 0;
+}
+
+.menu-toggle span {
+  width: 20px;
+  height: 2px;
+  display: block;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.menu-toggle span + span {
+  margin-top: 5px;
 }
 
 .site-header nav a {
@@ -527,30 +552,80 @@ main {
   }
 }
 
+@media (prefers-color-scheme: dark) and (max-width: 860px) {
+  .site-header nav a {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
 @media (max-width: 860px) {
   .site-header {
+    width: 100%;
     min-height: auto;
-    padding: 18px 0;
-    align-items: flex-start;
-    flex-direction: column;
+    padding: 10px 16px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .menu-toggle {
+    display: grid;
+    margin-left: auto;
+    color: #fff;
+    background: var(--red);
+    border-color: transparent;
+    box-shadow: 0 10px 22px rgba(198, 18, 35, 0.22);
   }
 
   .site-header nav {
     width: 100%;
-    overflow-x: auto;
-    padding-bottom: 2px;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgba(17, 18, 23, 0.96);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  }
+
+  .site-header nav.is-open {
+    display: grid;
   }
 
   .site-header nav a {
-    white-space: nowrap;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    white-space: normal;
+    padding: 9px 10px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+  }
+
+  .site-header nav a + a {
+    margin-top: 2px;
+  }
+
+  .site-header nav a:hover,
+  .site-header nav a:focus-visible {
+    color: #fff;
+    background: rgba(198, 18, 35, 0.92);
+    outline: none;
   }
 
   .hero {
-    min-height: 720px;
+    min-height: 620px;
   }
 
   .hero-content {
-    padding: 76px 0 102px;
+    padding: 58px 0 94px;
   }
 
   .lead {
@@ -593,16 +668,92 @@ main {
   }
 
   .brand {
+    width: auto;
+    min-width: 0;
     font-size: 15px;
   }
 
+  .brand span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .site-header nav a {
+    font-size: 14px;
+  }
+
   .hero {
-    min-height: 680px;
+    min-height: 560px;
+    align-items: end;
+  }
+
+  .hero-media::after {
+    background:
+      linear-gradient(90deg, rgba(8, 9, 13, 0.88), rgba(8, 9, 13, 0.48)),
+      linear-gradient(0deg, rgba(8, 9, 13, 0.72), rgba(8, 9, 13, 0.16));
+  }
+
+  .hero-media img {
+    object-position: 64% center;
+  }
+
+  .hero-content {
+    padding: 42px 0 78px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.7px;
+  }
+
+  .lead {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
   }
 
   .hero-actions a,
   .contact-card a {
     width: 100%;
+  }
+
+  .intro-section {
+    margin-top: -38px;
+  }
+
+  .intro-section strong {
+    font-size: 36px;
+  }
+
+  .training-section,
+  .history-section,
+  .coaches-section,
+  .gallery-section,
+  .schedule-section,
+  .about-section,
+  .contact-section {
+    padding: 46px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .training-card {
+    min-height: 220px;
+  }
+
+  .gallery-item {
+    min-height: 140px;
   }
 
   .intro-section article,
