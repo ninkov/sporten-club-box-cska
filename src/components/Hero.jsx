@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import heroImg from '../assets/boxing-hero.png'
 
 function Hero() {
@@ -14,12 +15,12 @@ function Hero() {
           състезателна подготовка и контакт с клуба.
         </p>
         <div className="hero-actions">
-          <a className="primary-button" href="#contact">
+          <Link className="primary-button" to="/kontakti">
             Запиши се
-          </a>
-          <a className="secondary-button" href="#training">
+          </Link>
+          <Link className="secondary-button" to="/#training">
             Виж групите
-          </a>
+          </Link>
         </div>
       </div>
     </section>

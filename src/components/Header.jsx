@@ -1,13 +1,14 @@
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import logoImg from '../assets/cska-logo.jpg'
 
 const navLinks = [
-  ['#top', 'Начало'],
-  ['#about', 'За нас'],
-  ['#history', 'История на клуба'],
-  ['#coaches', 'Треньори'],
-  ['#gallery', 'Галерия'],
-  ['#contact', 'Контакти'],
+  ['/', 'Начало'],
+  ['/za-nas', 'За нас'],
+  ['/istoria-na-kluba', 'История на клуба'],
+  ['/trenyori', 'Треньори'],
+  ['/galeria', 'Галерия'],
+  ['/kontakti', 'Контакти'],
 ]
 
 function Header() {
@@ -15,10 +16,10 @@ function Header() {
 
   return (
     <header className="site-header">
-      <a className="brand" href="#top" aria-label="Спортен клуб бокс ЦСКА">
+      <NavLink className="brand" to="/" aria-label="Спортен клуб бокс ЦСКА">
         <img className="brand-logo" src={logoImg} alt="" />
         <span>Спортен клуб бокс</span>
-      </a>
+      </NavLink>
       <button
         className="menu-toggle"
         type="button"
@@ -37,9 +38,9 @@ function Header() {
         aria-label="Основна навигация"
       >
         {navLinks.map(([href, label]) => (
-          <a key={href} href={href} onClick={() => setIsMenuOpen(false)}>
+          <NavLink key={href} to={href} end={href === '/'} onClick={() => setIsMenuOpen(false)}>
             {label}
-          </a>
+          </NavLink>
         ))}
       </nav>
     </header>

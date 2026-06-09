@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --bg: #f7f7f3;
   --surface: #ffffff;
@@ -188,7 +184,8 @@ main {
   border-radius: 6px;
 }
 
-.site-header nav a:hover {
+.site-header nav a:hover,
+.site-header nav a.active {
   color: var(--text-h);
   background: var(--surface);
 }
@@ -350,10 +347,6 @@ main {
 .contact-section {
   padding: 88px 0;
   border-top: 1px solid var(--border);
-}
-
-.intro-section + .training-section {
-  border-top: 0;
 }
 
 .section-heading {
@@ -546,6 +539,32 @@ main {
   width: 100%;
 }
 
+.map-frame {
+  width: 100%;
+  min-height: 280px;
+  display: block;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 8px;
+  background: var(--border);
+}
+
+.not-found-section {
+  width: min(1180px, calc(100% - 32px));
+  min-height: calc(100svh - 76px);
+  margin: 0 auto;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  padding: 88px 0;
+}
+
+.not-found-section p {
+  max-width: 560px;
+  margin: 0 0 28px;
+  line-height: 1.65;
+}
+
 @media (prefers-color-scheme: dark) {
   .site-header {
     background: rgba(17, 18, 23, 0.88);
@@ -614,7 +633,8 @@ main {
   }
 
   .site-header nav a:hover,
-  .site-header nav a:focus-visible {
+  .site-header nav a:focus-visible,
+  .site-header nav a.active {
     color: #fff;
     background: rgba(198, 18, 35, 0.92);
     outline: none;
@@ -663,7 +683,8 @@ main {
   .gallery-section,
   .schedule-section,
   .about-section,
-  .contact-section {
+  .contact-section,
+  .not-found-section {
     width: min(100% - 24px, 1180px);
   }
 
@@ -763,6 +784,10 @@ main {
   .gallery-item,
   .contact-card {
     padding: 20px;
+  }
+
+  .map-frame {
+    min-height: 240px;
   }
 
   .schedule-row {

@@ -1,27 +1,28 @@
-import AboutSection from './components/AboutSection'
-import ContactSection from './components/ContactSection'
-import CoachesSection from './components/CoachesSection'
-import GallerySection from './components/GallerySection'
+import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
-import Hero from './components/Hero'
-import HistorySection from './components/HistorySection'
-import ScheduleSection from './components/ScheduleSection'
-import Stats from './components/Stats'
-import TrainingSection from './components/TrainingSection'
+import ScrollManager from './components/ScrollManager'
+import AboutPage from './pages/AboutPage'
+import CoachesPage from './pages/CoachesPage'
+import ContactPage from './pages/ContactPage'
+import GalleryPage from './pages/GalleryPage'
+import HistoryPage from './pages/HistoryPage'
+import HomePage from './pages/HomePage'
+import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
   return (
     <main>
+      <ScrollManager />
       <Header />
-      <Hero />
-      <Stats />
-      <AboutSection />
-      <HistorySection />
-      <CoachesSection />
-      <GallerySection />
-      <TrainingSection />
-      <ScheduleSection />
-      <ContactSection />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/za-nas" element={<AboutPage />} />
+        <Route path="/istoria-na-kluba" element={<HistoryPage />} />
+        <Route path="/trenyori" element={<CoachesPage />} />
+        <Route path="/galeria" element={<GalleryPage />} />
+        <Route path="/kontakti" element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </main>
   )
 }
