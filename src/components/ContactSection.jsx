@@ -15,9 +15,14 @@ function ContactSection() {
         </p>
       </div>
       <div className="contact-card">
-        <a className="primary-button" href="tel:+359000000000">
-          Обади се
-        </a>
+        <div className="contact-phone-actions" aria-label="Телефони за контакт">
+          <a className="primary-button" href="tel:+359884019209">
+            0884 019 209
+          </a>
+          <a className="primary-button" href="tel:+359888712041">
+            0888 712 041
+          </a>
+        </div>
         <a className="secondary-button" href="mailto:club@example.com">
           Изпрати имейл
         </a>
