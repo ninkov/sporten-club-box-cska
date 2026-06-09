@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import ScrollManager from './components/ScrollManager'
+import ScrollToTopButton from './components/ScrollToTopButton'
 import AboutPage from './pages/AboutPage'
 import CoachesPage from './pages/CoachesPage'
 import ContactPage from './pages/ContactPage'
@@ -25,6 +27,8 @@ function App() {
         <Route path="/kontakti" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <Footer />
+      <ScrollToTopButton />
     </main>
   )
 }
