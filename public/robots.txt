@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sporten-club-box-cska.pages.dev/sitemap.xml

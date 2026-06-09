@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-
-const defaultImage = '/og-cover.png'
+import { buildStructuredData } from '../seo/schema'
+import { siteConfig } from '../seo/siteConfig'
 
 function setMeta(selector, attribute, value) {
   let element = document.querySelector(selector)
@@ -31,7 +31,7 @@ function setCanonical(url) {
   canonical.setAttribute('href', url)
 }
 
-function setStructuredData(origin) {
+function setStructuredData(schema) {
   let script = document.querySelector('#structured-data')
 
   if (!script) {
@@ -41,37 +41,23 @@ function setStructuredData(origin) {
     document.head.append(script)
   }
 
-  script.textContent = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'SportsActivityLocation',
-    name: 'Спортен клуб бокс ЦСКА',
-    alternateName: 'Boxing Club CSKA',
-    sport: 'Boxing',
-    url: origin,
-    image: `${origin}${defaultImage}`,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'бул. Професор Цветан Лазаров 14',
-      addressLocality: 'София',
-      postalCode: '1784',
-      addressCountry: 'BG',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 42.6717037,
-      longitude: 23.3800093,
-    },
-    sameAs: [
-      'https://www.google.com/maps/place/%D0%91%D0%BE%D0%BA%D1%81+%D0%BA%D0%BB%D1%83%D0%B1+%D0%A6%D0%A1%D0%9A%D0%90/@42.6717037,23.3774397,691m/data=!3m1!1e3!4m6!3m5!1s0x40aa86770673ebed:0x41a003b8b463f40f!8m2!3d42.6717037!4d23.3800093!16s%2Fg%2F11b6gm0zmn',
-    ],
-  })
+  script.textContent = JSON.stringify(schema)
 }
 
-function Seo({ description, title }) {
+function Seo({ breadcrumbs = [], description, pageType = 'WebPage', title }) {
   useEffect(() => {
-    const origin = window.location.origin
+    const origin = siteConfig.siteUrl
     const canonicalUrl = `${origin}${window.location.pathname}`
-    const imageUrl = `${origin}${defaultImage}`
+    const imageUrl = `${origin}${siteConfig.defaultImage}`
+    const schema = buildStructuredData({
+      breadcrumbs,
+      canonicalUrl,
+      description,
+      imageUrl,
+      origin,
+      pageType,
+      title,
+    })
 
     document.title = title
 
@@ -81,12 +67,12 @@ function Seo({ description, title }) {
     setMeta('meta[property="og:description"]', 'content', description)
     setMeta('meta[property="og:url"]', 'content', canonicalUrl)
     setMeta('meta[property="og:image"]', 'content', imageUrl)
-    setMeta('meta[property="og:image:alt"]', 'content', 'Боксови ръкавици в спортна зала')
+    setMeta('meta[property="og:image:alt"]', 'content', siteConfig.imageAlt)
     setMeta('meta[name="twitter:title"]', 'content', title)
     setMeta('meta[name="twitter:description"]', 'content', description)
     setMeta('meta[name="twitter:image"]', 'content', imageUrl)
-    setStructuredData(origin)
-  }, [description, title])
+    setStructuredData(schema)
+  }, [breadcrumbs, description, pageType, title])
 
   return null
 }

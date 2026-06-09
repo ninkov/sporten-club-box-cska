@@ -15,6 +15,7 @@ function HomePage() {
       <Seo
         title="Спортен клуб бокс ЦСКА"
         description="Официален сайт на Спортен клуб бокс ЦСКА - тренировки, история, треньори, галерия и контакти."
+        pageType="WebPage"
       />
       <Hero />
       <Stats />
