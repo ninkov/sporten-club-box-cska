@@ -595,18 +595,213 @@ main {
 
 .gallery-item {
   min-height: 180px;
+  position: relative;
+  overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
   padding: 20px;
+  color: inherit;
+  text-align: left;
   background:
     linear-gradient(135deg, rgba(198, 18, 35, 0.28), rgba(19, 21, 28, 0.08)),
     var(--surface);
+  cursor: pointer;
+}
+
+.gallery-item::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background:
+    linear-gradient(180deg, rgba(19, 21, 28, 0.08), rgba(19, 21, 28, 0.78)),
+    linear-gradient(135deg, rgba(198, 18, 35, 0.42), rgba(19, 21, 28, 0.1));
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gallery-item.has-images::after {
+  opacity: 1;
+}
+
+.gallery-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.28s ease;
 }
 
 .gallery-item span {
+  position: relative;
+  z-index: 1;
   color: var(--text-h);
   font-size: 20px;
   font-weight: 950;
+}
+
+.gallery-item small,
+.gallery-item em {
+  position: relative;
+  z-index: 1;
+  line-height: 1.45;
+}
+
+.gallery-item small {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.gallery-item em {
+  color: var(--red);
+  font-style: normal;
+  font-weight: 900;
+}
+
+.gallery-item.has-images span,
+.gallery-item.has-images small {
+  color: #fff;
+}
+
+.gallery-item.has-images:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.gallery-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(8, 9, 13, 0.78);
+  cursor: pointer;
+}
+
+.gallery-modal-content {
+  position: relative;
+  width: min(980px, 100%);
+  max-height: min(780px, calc(100svh - 48px));
+  overflow: auto;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+}
+
+.gallery-modal-content h3 {
+  margin: 0 54px 18px 0;
+  color: var(--text-h);
+  font-size: 28px;
+}
+
+.gallery-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-h);
+  background: var(--surface);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gallery-viewer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--border);
+  touch-action: pan-y;
+}
+
+.gallery-active-image {
+  margin: 0;
+}
+
+.gallery-active-image img {
+  width: 100%;
+  max-height: min(62svh, 620px);
+  display: block;
+  object-fit: contain;
+  background: #0f1015;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(19, 21, 28, 0.66);
+  font-size: 38px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.gallery-arrow:hover {
+  color: var(--red);
+  background: #fff;
+}
+
+.gallery-arrow-prev {
+  left: 14px;
+}
+
+.gallery-arrow-next {
+  right: 14px;
+}
+
+.gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.gallery-thumb {
+  min-height: 76px;
+  overflow: hidden;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: var(--border);
+  cursor: pointer;
+}
+
+.gallery-thumb.is-active {
+  border-color: var(--red);
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .project-card {
@@ -1079,6 +1274,41 @@ main {
 
   .gallery-item {
     min-height: 140px;
+  }
+
+  .gallery-modal {
+    padding: 12px;
+  }
+
+  .gallery-modal-content {
+    max-height: calc(100svh - 24px);
+    padding: 16px;
+  }
+
+  .gallery-modal-content h3 {
+    font-size: 24px;
+  }
+
+  .gallery-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 31px;
+  }
+
+  .gallery-arrow-prev {
+    left: 8px;
+  }
+
+  .gallery-arrow-next {
+    right: 8px;
+  }
+
+  .gallery-thumbnails {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .gallery-thumb {
+    min-height: 58px;
   }
 
   .intro-section article,
