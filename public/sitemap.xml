@@ -26,6 +26,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://sporten-club-box-cska.pages.dev/proekti</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://sporten-club-box-cska.pages.dev/kontakti</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

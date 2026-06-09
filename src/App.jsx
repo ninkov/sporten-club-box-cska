@@ -8,6 +8,7 @@ import GalleryPage from './pages/GalleryPage'
 import HistoryPage from './pages/HistoryPage'
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
+import ProjectsPage from './pages/ProjectsPage'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/istoria-na-kluba" element={<HistoryPage />} />
         <Route path="/trenyori" element={<CoachesPage />} />
         <Route path="/galeria" element={<GalleryPage />} />
+        <Route path="/proekti" element={<ProjectsPage />} />
         <Route path="/kontakti" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

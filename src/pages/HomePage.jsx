@@ -4,6 +4,7 @@ import ContactSection from '../components/ContactSection'
 import GallerySection from '../components/GallerySection'
 import Hero from '../components/Hero'
 import HistorySection from '../components/HistorySection'
+import ProjectsSection from '../components/ProjectsSection'
 import ScheduleSection from '../components/ScheduleSection'
 import Seo from '../components/Seo'
 import Stats from '../components/Stats'
@@ -23,6 +24,7 @@ function HomePage() {
       <HistorySection />
       <CoachesSection />
       <GallerySection />
+      <ProjectsSection />
       <TrainingSection />
       <ScheduleSection />
       <ContactSection />

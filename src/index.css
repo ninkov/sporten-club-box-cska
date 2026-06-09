@@ -85,6 +85,7 @@ h2 {
   .history-card,
   .coach-card,
   .gallery-item,
+  .project-card,
   .schedule-list,
   .contact-card {
     background-color: #171920;
@@ -299,6 +300,7 @@ main {
 .history-section,
 .coaches-section,
 .gallery-section,
+.projects-section,
 .schedule-section,
 .about-section,
 .contact-section {
@@ -342,6 +344,7 @@ main {
 .history-section,
 .coaches-section,
 .gallery-section,
+.projects-section,
 .schedule-section,
 .about-section,
 .contact-section {
@@ -434,7 +437,8 @@ main {
 }
 
 .coaches-grid,
-.gallery-grid {
+.gallery-grid,
+.projects-grid {
   display: grid;
   gap: 18px;
 }
@@ -445,6 +449,10 @@ main {
 
 .gallery-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.projects-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .training-card {
@@ -481,7 +489,8 @@ main {
 
 .history-card,
 .coach-card,
-.gallery-item {
+.gallery-item,
+.project-card {
   border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--surface);
@@ -598,6 +607,49 @@ main {
   color: var(--text-h);
   font-size: 20px;
   font-weight: 950;
+}
+
+.project-card {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  background:
+    linear-gradient(135deg, rgba(198, 18, 35, 0.1), rgba(19, 21, 28, 0.02)),
+    var(--surface);
+}
+
+.project-card span {
+  color: var(--red);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.project-card h3 {
+  margin: 14px 0 12px;
+  color: var(--text-h);
+  font-size: 24px;
+}
+
+.project-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 22px;
+  color: var(--red);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  color: var(--red-dark);
 }
 
 .schedule-list {
@@ -777,6 +829,7 @@ main {
   .training-grid,
   .coaches-grid,
   .gallery-grid,
+  .projects-grid,
   .about-section,
   .contact-section {
     grid-template-columns: 1fr;
@@ -786,6 +839,7 @@ main {
   .history-section,
   .coaches-section,
   .gallery-section,
+  .projects-section,
   .schedule-section,
   .about-section,
   .contact-section {
@@ -806,6 +860,7 @@ main {
   .history-section,
   .coaches-section,
   .gallery-section,
+  .projects-section,
   .schedule-section,
   .about-section,
   .contact-section,
@@ -884,6 +939,7 @@ main {
   .history-section,
   .coaches-section,
   .gallery-section,
+  .projects-section,
   .schedule-section,
   .about-section,
   .contact-section {
@@ -923,6 +979,7 @@ main {
   .history-card,
   .coach-card,
   .gallery-item,
+  .project-card,
   .contact-card {
     padding: 20px;
   }
