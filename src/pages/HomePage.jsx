@@ -20,14 +20,28 @@ function HomePage() {
       />
       <Hero />
       <Stats />
-      <AboutSection />
-      <HistorySection />
-      <CoachesSection />
-      <GallerySection />
-      <ProjectsSection />
-      <TrainingSection />
+      <div className="landing-section-marker">
+        <AboutSection />
+      </div>
+      <div className="landing-section-marker">
+        <HistorySection />
+      </div>
+      <div className="landing-section-marker">
+        <CoachesSection />
+      </div>
+      <div className="landing-section-marker">
+        <TrainingSection />
+      </div>
       <ScheduleSection />
-      <ContactSection />
+      <div className="landing-section-marker">
+        <GallerySection />
+      </div>
+      <div className="landing-section-marker">
+        <ProjectsSection />
+      </div>
+      <div className="landing-section-marker">
+        <ContactSection />
+      </div>
     </>
   )
 }

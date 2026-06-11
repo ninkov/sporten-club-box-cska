@@ -1,5 +1,6 @@
 const projects = [
   {
+    id: 'multicultural-project-info',
     title: 'Мултикултурна среда без насилие',
     meta: 'Информация за проекта',
     text: 'Спортен празник за деца в залата на СК Бокс ЦСКА с активности по бокс, волейбол, баскетбол и бадминтон, насочени към екипност, толерантност и уважение.',
@@ -7,6 +8,7 @@ const projects = [
       'https://demetra.bg/proekt-izgrazhdane-na-multikulturna-sreda-bez-nasilie-chrez-interkulturno-obrazovanie-i-sport-2/',
   },
   {
+    id: 'multicultural-project-children-day',
     title: 'Мултикултурна среда без насилие',
     meta: '1 юни',
     text: 'Спортен празник за деца в залата на СК Бокс ЦСКА с активности по бокс, волейбол, баскетбол и бадминтон, насочени към екипност, толерантност и уважение.',
@@ -28,7 +30,7 @@ function ProjectsSection() {
       </div>
       <div className="projects-grid">
         {projects.map((project) => (
-          <article className="project-card" key={project.title}>
+          <article className="project-card" key={project.id}>
             <span>{project.meta}</span>
             <h3>{project.title}</h3>
             <p>{project.text}</p>

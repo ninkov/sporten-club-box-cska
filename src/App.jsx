@@ -11,6 +11,7 @@ import HistoryPage from './pages/HistoryPage'
 import HomePage from './pages/HomePage'
 import NotFoundPage from './pages/NotFoundPage'
 import ProjectsPage from './pages/ProjectsPage'
+import TrainingPage from './pages/TrainingPage'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/za-nas" element={<AboutPage />} />
         <Route path="/istoria-na-kluba" element={<HistoryPage />} />
         <Route path="/trenyori" element={<CoachesPage />} />
+        <Route path="/trenirovki" element={<TrainingPage />} />
         <Route path="/galeria" element={<GalleryPage />} />
         <Route path="/proekti" element={<ProjectsPage />} />
         <Route path="/kontakti" element={<ContactPage />} />

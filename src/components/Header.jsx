@@ -7,6 +7,7 @@ const navLinks = [
   ['/za-nas', 'За нас'],
   ['/istoria-na-kluba', 'История на клуба'],
   ['/trenyori', 'Треньори'],
+  ['/trenirovki', 'Тренировки'],
   ['/galeria', 'Галерия'],
   ['/proekti', 'Проекти'],
   ['/kontakti', 'Контакти'],

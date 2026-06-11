@@ -7,6 +7,7 @@ const footerLinks = [
   ['/za-nas', 'За нас'],
   ['/istoria-na-kluba', 'История'],
   ['/trenyori', 'Треньори'],
+  ['/trenirovki', 'Тренировки'],
   ['/galeria', 'Галерия'],
   ['/proekti', 'Проекти'],
   ['/kontakti', 'Контакти'],

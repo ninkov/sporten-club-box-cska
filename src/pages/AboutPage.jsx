@@ -7,7 +7,7 @@ function AboutPage() {
     <>
       <Seo
         title="За нас | Спортен клуб бокс ЦСКА"
-        description="Научете повече за подхода, тренировките и развитието в Спортен клуб бокс ЦСКА."
+        description="Научете повече за Спортен клуб бокс ЦСКА, тренировъчния подход, традицията и средата за развитие в клуба."
         pageType="AboutPage"
         breadcrumbs={[{ name: 'За нас', url: `${siteConfig.siteUrl}/za-nas` }]}
       />
