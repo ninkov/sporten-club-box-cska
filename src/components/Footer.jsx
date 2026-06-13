@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import logoImg from '../assets/cska-logo.jpg'
+import logoImg from '../assets/optimized/cska-logo-128.jpg'
 import { googleMapsUrl, siteConfig } from '../seo/siteConfig'
 
 const footerLinks = [
@@ -21,7 +21,15 @@ function Footer() {
       <div className="footer-inner">
         <div className="footer-brand">
           <NavLink className="brand" to="/" aria-label={siteConfig.name}>
-            <img className="brand-logo" src={logoImg} alt="" />
+            <img
+              className="brand-logo"
+              src={logoImg}
+              alt=""
+              width="48"
+              height="48"
+              loading="lazy"
+              decoding="async"
+            />
             <span>{siteConfig.name}</span>
           </NavLink>
           <p>

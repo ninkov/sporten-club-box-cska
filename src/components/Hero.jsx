@@ -1,11 +1,20 @@
 import { Link } from 'react-router-dom'
-import heroImg from '../assets/boxing-hero.png'
 
 function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-media">
-        <img src={heroImg} alt="Боксова зала с ринг и ръкавици" />
+        <picture>
+          <source media="(max-width: 700px)" srcSet="/images/boxing-hero-mobile.jpg" />
+          <img
+            src="/images/boxing-hero-desktop.jpg"
+            alt="Боксова зала с ринг и ръкавици"
+            width="1717"
+            height="916"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
       <div className="hero-content">
         <p className="eyebrow">София • бокс • дисциплина</p>

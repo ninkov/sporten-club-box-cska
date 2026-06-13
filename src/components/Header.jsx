@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import logoImg from '../assets/cska-logo.jpg'
+import logoImg from '../assets/optimized/cska-logo-128.jpg'
 
 const navLinks = [
   ['/', 'Начало'],
@@ -19,7 +19,7 @@ function Header() {
   return (
     <header className="site-header">
       <NavLink className="brand" to="/" aria-label="Спортен клуб бокс ЦСКА">
-        <img className="brand-logo" src={logoImg} alt="" />
+        <img className="brand-logo" src={logoImg} alt="" width="48" height="48" />
         <span>Спортен клуб бокс</span>
       </NavLink>
       <button
