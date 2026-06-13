@@ -1,24 +1,43 @@
 import { useCallback, useEffect, useState } from 'react'
-import trainingImage1 from '../assets/gallery-training1.jpg'
-import trainingImage2 from '../assets/gallery-training2.jpg'
-import trainingImage3 from '../assets/gallery-training3.jpg'
-import trainingImage4 from '../assets/gallery-training4.jpg'
+
+const competitionImages = Object.entries(
+  import.meta.glob('../assets/gallery/competitions/*.jpg', {
+    eager: true,
+    import: 'default',
+  }),
+)
+  .sort(([firstPath], [secondPath]) =>
+    firstPath.localeCompare(secondPath, 'bg', { numeric: true }),
+  )
+  .map(([, src], index) => ({
+    src,
+    alt: `Състезателен момент от Спортен клуб бокс ЦСКА - снимка ${index + 1}`,
+  }))
+
+const trainingImages = Object.entries(
+  import.meta.glob('../assets/gallery/training/*.jpg', {
+    eager: true,
+    import: 'default',
+  }),
+)
+  .sort(([firstPath], [secondPath]) =>
+    firstPath.localeCompare(secondPath, 'bg', { numeric: true }),
+  )
+  .map(([, src], index) => ({
+    src,
+    alt: `Тренировка в Спортен клуб бокс ЦСКА - снимка ${index + 1}`,
+  }))
 
 const galleryItems = [
   {
     title: 'Тренировки',
     description: 'Кадри от подготовката и спарингите в залата.',
-    images: [
-      { src: trainingImage1, alt: 'Спаринг тренировка в залата на Спортен клуб бокс ЦСКА' },
-      { src: trainingImage2, alt: 'Тренировка по бокс в СК Бокс ЦСКА' },
-      { src: trainingImage3, alt: 'Боксьори по време на подготовка' },
-      { src: trainingImage4, alt: 'Спаринг тренировка в залата на Спортен клуб бокс ЦСКА' },
-    ],
+    images: trainingImages,
   },
   {
     title: 'Състезания',
-    description: 'Снимки от турнири и официални срещи.',
-    images: [],
+    description: 'Турнири, победи, отличия и официални срещи.',
+    images: competitionImages,
   },
   {
     title: 'Зала',
@@ -136,7 +155,7 @@ function GallerySection() {
             type="button"
             onClick={() => item.images.length && openGallery(item)}
           >
-            {item.images[0] && <img src={item.images[0].src} alt="" />}
+            {item.images[0] && <img src={item.images[0].src} alt="" loading="lazy" />}
             <span>{item.title}</span>
             <small>{item.description}</small>
             {!item.images.length && <em>Очаквайте снимки</em>}
@@ -196,7 +215,7 @@ function GallerySection() {
                   aria-current={index === activeImageIndex}
                   onClick={() => setActiveImageIndex(index)}
                 >
-                  <img src={image.src} alt="" />
+                  <img src={image.src} alt="" loading="lazy" />
                 </button>
               ))}
             </div>
