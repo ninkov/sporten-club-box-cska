@@ -50,6 +50,7 @@ function Footer() {
           <strong>Контакти</strong>
           <a href="tel:+359884019209">0884 019 209</a>
           <a href="tel:+359888712041">0888 712 041</a>
+          <a href="mailto:hapa_n@abv.bg">hapa_n@abv.bg</a>
           <a href={googleMapsUrl} target="_blank" rel="noreferrer">
             {siteConfig.address.addressLocality}, {siteConfig.address.streetAddress}
           </a>

@@ -10,8 +10,9 @@ function ContactSection() {
         <p className="eyebrow">Контакт</p>
         <h2 id="contact-title">Ела на пробна тренировка.</h2>
         <p>
-          Попълни реалните телефон, адрес и имейл на клуба, когато са готови. Засега
-          бутоните са оставени като placeholders.
+          Всяко голямо постижение започва с първата крачка. Ела в залата, усети
+          духа на бокса и тренирай с хора, които ще ти помогнат да станеш
+          по-силен, по-уверен и по-дисциплиниран.
         </p>
       </div>
       <div className="contact-card">
@@ -23,8 +24,8 @@ function ContactSection() {
             0888 712 041
           </a>
         </div>
-        <a className="secondary-button" href="mailto:club@example.com">
-          Изпрати имейл
+        <a className="secondary-button" href="mailto:hapa_n@abv.bg">
+          hapa_n@abv.bg
         </a>
         <a className="secondary-button" href={googleMapsUrl} target="_blank" rel="noreferrer">
           Отвори в Google Maps
